@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>fr.gtm.proxibanquev2</groupId>
+		<artifactId>proxibanquev2-main</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>proxibanquev2-aggregator</artifactId>
+	<name>proxibanquev2-aggregator</name>
+	<url>http://maven.apache.org</url>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<packaging>ear</packaging>
+
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>fr.gtm.proxibanquev2</groupId>
+			<artifactId>proxibanquev2-domaine</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>fr.gtm.proxibanquev2</groupId>
+			<artifactId>proxibanquev2-dao</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>fr.gtm.proxibanquev2</groupId>
+			<artifactId>proxibanquev2-service</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>fr.gtm.proxibanquev2</groupId>
+			<artifactId>proxibanquev2-web</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+			<type>war</type>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<finalName>proxibanquev2-aggregator</finalName>
+		<plugins>
+
+			<!-- EAR plug-in -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-ear-plugin</artifactId>
+				<version>2.10.1</version>
+				<!-- <version>${version.ear.plugin}</version> -->
+				<configuration>
+					<!-- <defaultLibBundleDir>lib</defaultLibBundleDir> -->
+					<modules>
+						<!-- our War as a web module and set the contextRoot property -->
+						<webModule>
+							<groupId>fr.gtm.proxibanquev2</groupId>
+							<artifactId>proxibanquev2-web</artifactId>
+							<!-- <contextRoot>/wildfly-ejb-in-ear</contextRoot> -->
+						</webModule>
+					</modules>
+					<!-- <fileNameMapping>no-version</fileNameMapping> -->
+				</configuration>
+			</plugin>
+
+			<!-- Jetty plug-in to deploy EAR -->
+			<plugin>
+				<groupId>org.eclipse.jetty</groupId>
+				<artifactId>jetty-maven-plugin</artifactId>
+				<version>9.4.0.v20161208</version>
+			</plugin>
+			
+		</plugins>
+	</build>
+</project>

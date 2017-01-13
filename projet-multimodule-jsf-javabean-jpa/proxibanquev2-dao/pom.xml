@@ -1,0 +1,39 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>fr.gtm.proxibanquev2</groupId>
+		<artifactId>proxibanquev2-main</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>proxibanquev2-dao</artifactId>
+	<dependencies>
+	<!-- DEPENDENCE 1 : Couche Domaine -->
+		<dependency>
+			<groupId>fr.gtm.proxibanquev2</groupId>
+			<artifactId>proxibanquev2-domaine</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		
+	<!-- DEPENDENCE 2 : JPA - Grace au DependenceyManageMent du parent, pas besoin de metre version-->
+	<!-- REMARQUE : on pourrait enlever car on recupere via domaine mais bonne pratique : explicite-->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+		</dependency>
+
+	<!-- DEPENDENCE 3 : Log4j - Grace au DependenceyManageMent du parent, pas besoin de metre version-->
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+		</dependency>
+
+	<!-- DEPENDENCE 4 : MySQL Connector - Specifique couche Dao-->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.21</version>
+		</dependency>
+	</dependencies>
+
+</project>
