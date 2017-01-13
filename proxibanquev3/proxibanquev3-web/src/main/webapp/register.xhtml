@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+	<!--Intégration du fichier CSS dans la page-->
+	<h:outputStylesheet library="css" name="table-style.css" />
+	<h:outputStylesheet library="css" name="common-style.css" />
+</h:head>
+<body>
+	<h:form>
+		<h4>
+			Formulaire JSF d'inscription au <a
+				href="http://www.objis.com/formation-java/club-objis.html">Club
+				Objis</a>.
+
+		</h4>
+		<table>
+			<tr>
+				<td>Prénom:</td>
+				<td><h:inputText value="#{userbean.utilisateur.prenom}"
+						required="true" id="prenom" /> <h:message for="prenom" /></td>
+			</tr>
+			<tr>
+				<td>Nom:</td>
+				<td><h:inputText value="#{userbean.utilisateur.nom}"
+						required="true" id="nom" /> <h:message for="nom" /></td>
+			</tr>
+			<tr>
+				<td>Sexe:</td>
+				<td><h:selectOneRadio value="#{userbean.utilisateur.genre}"
+						required="true" id="genre">
+						<f:selectItem itemLabel="Homme" itemValue="homme" />
+						<f:selectItem itemLabel="Femme" itemValue="femme" />
+					</h:selectOneRadio> <h:message for="genre" /></td>
+			</tr>
+			<tr>
+				<td>Date de naissance:</td>
+				<td><h:inputText
+						value="#{userbean.utilisateur.datedenaissance}" id="datenaissance"
+						required="true">
+					</h:inputText> (mm-dd-yy) <h:message for="datenaissance" /></td>
+			</tr>
+			<tr>
+				<td>Email:</td>
+				<td><h:inputText value="#{userbean.utilisateur.email}"
+						required="true" id="email" /> <h:message for="email" /></td>
+			</tr>
+			<tr>
+				<td>Qualité de service:</td>
+				<td><h:selectOneMenu
+						value="#{userbean.utilisateur.niveaudeservice}">
+						<f:selectItem itemLabel="Basic" itemValue="basic" />
+						<f:selectItem itemLabel="Medium" itemValue="medium" />
+						<f:selectItem itemLabel="Premium" itemValue="premium" />
+					</h:selectOneMenu></td>
+			</tr>
+		</table>
+		<p>
+			<h:commandButton value="Inscription" action="#{userbean.addAction()}" />
+		</p>
+	</h:form>
+			<h:form>
+				<h4>Listes des participants inscrits</h4>
+
+				<h:dataTable value="#{userbean.userList}" var="o"
+					styleClass="order-table" headerClass="order-table-header"
+					rowClasses="order-table-odd-row,order-table-even-row">
+
+					<h:column>
+						column header
+						<f:facet name="header">Prénom</f:facet>
+						row record
+						<h:outputText value="#{o.prenom}" />
+					</h:column>
+
+					<h:column>
+						<f:facet name="header">Nom</f:facet>
+						<h:outputText value="#{o.nom}" />
+					</h:column>
+
+					<h:column>
+						<f:facet name="header">Email</f:facet>
+						<h:outputText value="#{o.email}" />
+					</h:column>
+
+					<h:column>
+						<f:facet name="header">Date de Naissance</f:facet>
+						<h:outputText value="#{o.datedenaissance}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">Niveau de Service</f:facet>
+						<h:outputText value="#{o.niveaudeservice}" />
+					</h:column>
+
+
+					<h:column> 
+					<f:facet name="header">Supprimer</f:facet>
+					<h:commandLink value="Supprimer" action="#{userbean.deleteAction(o)}"/>
+					</h:column>
+				</h:dataTable>
+			</h:form>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>OBjis Formation</title>
+</head>
+
+<body>
+	<!-- DECLARATION DU TEMPLATE DONT LA PAGE EST CLIENTE -->
+	<ui:composition template="/template/layout.xhtml">
+
+		<!--<ui:define name="header">
+			 redéfinition du header si cette page possede son propore Header
+			 sinon, cette page prend le Header par defaut du Template
+		</ui:define>-->
+
+		<ui:define name="content">
+			<!-- Redefinition du contenu du template  -->
+			<f:view>
+				<h:form>
+					<h2>Formulaire d'enregistrement Pour Client Objis</h2>
+					<h:commandLink action="register">
+						<h:outputText value="Cliquez ici pour vous 	enregistrez......"></h:outputText>
+					</h:commandLink>
+				</h:form>
+			</f:view>
+		</ui:define>
+
+		<!-- <ui:define name="footer">	
+		redéfinition du footer si cette page possede son propore Footer
+			 sinon, cette page prend le footer par defaut du Template 
+					<h2>This is page1 Footer</h2>		 
+		</ui:define> -->
+	</ui:composition>
+</body>
+</html>
