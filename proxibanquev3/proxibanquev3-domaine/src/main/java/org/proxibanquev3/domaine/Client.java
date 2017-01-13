@@ -2,10 +2,12 @@ package org.proxibanquev3.domaine;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 /**
  * @author Marie Martelat & Marie Jacquin
@@ -28,6 +30,8 @@ public class Client implements Serializable {
 	private String prenom;
 	private String email;
 	private String adresse;
+	
+	@OneToMany(cascade=CascadeType.ALL)
 	private Conseiller conseiller;
 
 	// Constructeurs

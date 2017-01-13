@@ -1,11 +1,13 @@
 package org.proxibanquev3.domaine;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 /**
  * @author Marie Martelat & Marie Jacquin
@@ -28,6 +30,9 @@ public class Conseiller implements Serializable {
 	private String prenom;
 	private String login;
 	private String pwd;
+	
+	@OneToMany
+	private ArrayList<Client> listClient;
 	
 	//Constructeurs
 	/**
