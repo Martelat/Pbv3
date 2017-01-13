@@ -8,9 +8,9 @@
 		<artifactId>proxibanquev3</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	
+
 	<artifactId>proxibanquev3-web</artifactId>
-	
+
 	<packaging>war</packaging>
 	<name>proxibanquev3-web Maven Webapp</name>
 	<url>http://maven.apache.org</url>
@@ -46,7 +46,23 @@
 			<version>1.0</version>
 			<scope>provided</scope>
 		</dependency>
-		
+
+
+		<!-- DEPENDENCE 5 : Primefaces -->
+		<dependency>
+			<groupId>org.primefaces</groupId>
+			<artifactId>primefaces</artifactId>
+			<version>4.0</version>
+		</dependency>
+
+		<!-- DEPENDENCE 5 : theme PF -->
+		<dependency>
+			<groupId>org.primefaces.extensions</groupId>
+			<artifactId>all-themes</artifactId>
+			<version>1.0.8</version>
+		</dependency>
+
+
 	</dependencies>
 	<build>
 		<finalName>proxibanquev3-web</finalName>
