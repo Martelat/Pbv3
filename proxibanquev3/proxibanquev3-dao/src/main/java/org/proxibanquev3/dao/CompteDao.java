@@ -20,8 +20,9 @@ public class CompteDao extends Dao<Compte> implements ICompteDao{
 	}
 
 	@Override
-	public void creer(Compte compte) {
+	public Compte creer(Compte compte) {
 		super.creer(compte);
+		return compte;
 	}
 	
 	@Override

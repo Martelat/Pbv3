@@ -10,6 +10,6 @@ public interface IClientDao extends IDao<Client>{
 
 	void supprimer(Client object);
 
-	void creer(Client object);
+	Client creer(Client object);
 
 }

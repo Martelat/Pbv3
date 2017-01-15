@@ -9,5 +9,5 @@ public interface IDao<T> {
 
 	void supprimer(T object);
 
-	void creer(T object);
+	T creer(T object);
 }
