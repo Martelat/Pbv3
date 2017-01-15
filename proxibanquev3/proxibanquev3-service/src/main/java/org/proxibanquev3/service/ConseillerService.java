@@ -1,9 +1,11 @@
 package org.proxibanquev3.service;
 
-import java.util.ArrayList;
+
+import java.util.Collection;
 
 import org.proxibanquev3.dao.ConseillerDao;
 import org.proxibanquev3.domaine.Client;
+import org.proxibanquev3.domaine.Conseiller;
 
 public class ConseillerService implements IConseillerService{
 
@@ -13,11 +15,28 @@ public class ConseillerService implements IConseillerService{
 	}
 
 	@Override
-	public ArrayList<Client> selectAll() {
+	public Collection<Client> selectAll() {
 		// TODO Auto-generated method stub
 		return conseillerDao.selectAll();
+	}
+
+	@Override
+	public String authentification(Conseiller conseiller) {
+		ConseillerDao conseillerdao = new ConseillerDao();
+		conseillerdao.authentification(conseiller);
+		if (conseiller.getLogin().equalsIgnoreCase(conseillerdao.getLogin())
+				&& conseiller.getPwd().equalsIgnoreCase(conseillerdao.getPwd()) && conseillerdao.getLogin() != null) {
+			return "listClients.xhtml";
+		} else {
+			return "login.xhtml";
+		}
+		
+	}
+
+		
 	}
 	
 	
 
-}
+	
+

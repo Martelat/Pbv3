@@ -2,6 +2,7 @@ package org.proxibanquev3.domaine;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collection;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -31,8 +32,8 @@ public class Conseiller implements Serializable {
 	private String login;
 	private String pwd;
 	
-	@OneToMany
-	private ArrayList<Client> listClient;
+	@OneToMany(mappedBy="conseiller")
+	private Collection<Client> client;
 	
 	//Constructeurs
 	/**
@@ -51,6 +52,12 @@ public class Conseiller implements Serializable {
 
 	public Conseiller() {
 		super();
+	}
+	
+	public Conseiller(String login, String pwd) {
+		super();
+		this.login = login;
+		this.pwd = pwd;
 	}
 
 	//Getters & Setters
@@ -92,6 +99,14 @@ public class Conseiller implements Serializable {
 
 	public void setPwd(String pwd) {
 		this.pwd = pwd;
+	}
+
+	public Collection<Client> getClient() {
+		return client;
+	}
+
+	public void setClient(Collection<Client> client) {
+		this.client = client;
 	}
 	
 	

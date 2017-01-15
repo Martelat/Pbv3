@@ -7,7 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
+
 
 /**
  * @author Marie Martelat & Marie Jacquin
@@ -31,7 +32,7 @@ public class Client implements Serializable {
 	private String email;
 	private String adresse;
 	
-	@OneToMany(cascade=CascadeType.ALL)
+	@ManyToOne
 	private Conseiller conseiller;
 
 	// Constructeurs
@@ -48,7 +49,8 @@ public class Client implements Serializable {
 		this.prenom = prenom;
 		this.email = email;
 		this.adresse = adresse;
-		this.conseiller = conseiller;
+		this.conseiller= conseiller;
+	
 	}
 
 	public Client() {

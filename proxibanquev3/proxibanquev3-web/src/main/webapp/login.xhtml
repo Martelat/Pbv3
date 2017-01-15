@@ -16,13 +16,13 @@
 			<h:form>
          
 			 <h:panelGrid columns="2" cellpadding="2">
-					<h:outputLabel for="#{userManagedBean.username}" value="Nom utilisateur" />
-					<h:inputText value="#{userManagedBean.username}" label="Nom utilisateur"></h:inputText>
-					<h:outputLabel for="#{userManagedBean.password}" value="Mot de passe" />
-					<h:inputSecret value="#{userManagedBean.password}"></h:inputSecret>
+					<h:outputLabel for="#{conseillerBean.login}" var="login" value="Nom utilisateur" />
+					<h:inputText value="#{conseillerBean.login}"  label="Nom utilisateur"></h:inputText>
+					<h:outputLabel for="#{conseillerBean.pwd}" var="pwd" value="Mot de passe" />
+					<h:inputSecret value="#{conseillerBean.pwd}" ></h:inputSecret>
 					
 					<h:commandButton type="submit" value="Se connecter"
-						action="#{userManagedBean.login}"></h:commandButton>
+						action="#{conseillerBean.authentification(login, pwd)}"></h:commandButton>
 				</h:panelGrid>
 			</h:form>
 		</p:panel>

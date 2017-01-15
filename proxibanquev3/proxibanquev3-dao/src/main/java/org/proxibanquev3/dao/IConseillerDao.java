@@ -1,6 +1,7 @@
 package org.proxibanquev3.dao;
 
-import java.util.ArrayList;
+
+import java.util.Collection;
 
 import org.proxibanquev3.domaine.Client;
 import org.proxibanquev3.domaine.Conseiller;
@@ -15,6 +16,8 @@ public interface IConseillerDao extends IDao<Conseiller>{
 
 	void creer(Conseiller object);
 	
-	ArrayList<Client> selectAll();
+	Collection<Client> selectAll();
+	
+	Conseiller authentification(Conseiller conseiller);
 	
 }

@@ -1,6 +1,7 @@
 package org.proxibanquev3.dao;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 import javax.annotation.PostConstruct;
 import javax.persistence.EntityManager;
@@ -21,6 +22,12 @@ public class ConseillerDao extends Dao<Conseiller> implements IConseillerDao{
 		super();
 		this.em = em;
 	}
+	
+	public ConseillerDao() {
+		super();
+		
+	}
+	
 
 	@Override
 	public void creer(Conseiller conseiller) {
@@ -46,10 +53,29 @@ public class ConseillerDao extends Dao<Conseiller> implements IConseillerDao{
 	public void logApresConstruction(){
 		System.out.println("Après création ConseillerDao");
 	}
+	
+	
 
 	@Override
-	public ArrayList<Client> selectAll() {
+	public Collection<Client> selectAll() {
 		// TODO Auto-generated method stub
-		return (ArrayList<Client>)em.createQuery("From Client").getResultList();//
+		return (Collection<Client>)em.createQuery("Select * from Client").getResultList();//
+	}
+
+	@Override
+	public Conseiller authentification(Conseiller conseiller) {
+		Conseiller pConseiller = select(conseiller);
+		return pConseiller;
+		
+	}
+
+	public String getLogin() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public String getPwd() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

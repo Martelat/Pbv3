@@ -45,6 +45,8 @@ public class Compte implements Serializable {
 		this.numero = numero;
 		this.type = type;
 		this.client = client;
+		
+		
 	}
 
 	public Compte() {
@@ -84,14 +86,14 @@ public class Compte implements Serializable {
 		this.type = type;
 	}
 
-	public Client getClient() {
-		return client;
-	}
-
-	public void setClient(Client client) {
-		this.client = client;
-	}
-	
+//	public Client getClient() {
+//		return client;
+//	}
+//
+//	public void setClient(Client client) {
+//		this.client = client;
+//	}
+//	
 	
 	
 	
