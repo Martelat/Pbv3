@@ -22,8 +22,9 @@ public class ConseillerService implements IConseillerService{
 
 	@Override
 	public String authentification(Conseiller conseiller) {
-		ConseillerDao conseillerdao = new ConseillerDao();
-		conseillerdao.authentification(conseiller);
+		
+		Conseiller conseillerdao = conseillerDao.selectObject(conseiller);
+
 		if (conseiller.getLogin().equalsIgnoreCase(conseillerdao.getLogin())
 				&& conseiller.getPwd().equalsIgnoreCase(conseillerdao.getPwd()) && conseillerdao.getLogin() != null) {
 			return "listClients.xhtml";

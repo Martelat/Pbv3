@@ -1,10 +1,13 @@
 package org.proxibanquev3.dao;
 
-import java.util.ArrayList;
+
 import java.util.Collection;
 
 import javax.annotation.PostConstruct;
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
 
 import org.proxibanquev3.domaine.Client;
 import org.proxibanquev3.domaine.Conseiller;
@@ -69,13 +72,20 @@ public class ConseillerDao extends Dao<Conseiller> implements IConseillerDao{
 		
 	}
 
-	public String getLogin() {
+	@Override
+	public Conseiller selectObject(Conseiller conseiller) {
+		
+		return super.selectObject(conseiller);
+	}
+
+	@Override
+	public Conseiller SelectObject(Conseiller conseiller) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	public String getPwd() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
+	
+	
+
 }

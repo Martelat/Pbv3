@@ -20,4 +20,6 @@ public interface IConseillerDao extends IDao<Conseiller>{
 	
 	Conseiller authentification(Conseiller conseiller);
 	
+	Conseiller SelectObject(Conseiller conseiller);
+	
 }

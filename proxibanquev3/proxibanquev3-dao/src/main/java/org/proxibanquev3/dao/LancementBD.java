@@ -7,6 +7,8 @@ import javax.persistence.Persistence;
 
 import org.proxibanquev3.domaine.Client;
 import org.proxibanquev3.domaine.Conseiller;
+import org.proxibanquev3.dao.ConseillerDao;
+
 
 public class LancementBD {
 
@@ -20,15 +22,14 @@ public class LancementBD {
 				tx.begin();
 				
 				// 3 : Instanciation Objet métier
-				Conseiller conseiller = new Conseiller("Dujardin", "Jean", "jean01", "acteur");
-				Client client1 = new Client("Jacq","Marie", "Jack.m@gmail.com", "aller du geek", conseiller);
-				Client client2 = new Client ("Marto", "Marie", "Marto.m@gmail.com", "allée des alpes", conseiller);
+				ConseillerDao conseillerdao = new ConseillerDao();
+				Conseiller conseiller = new Conseiller("jean01","acteur");
 				
 
 				// 4 : Persistance Objet/Relationnel : création d'un enregistrement en base
-				em.persist(conseiller);
-				em.persist(client2);
-				em.persist(client1);
+				
+				conseillerdao.SelectObject(conseiller);
+				
 				
 				// 5 : Fermeture transaction 
 				 tx.commit();

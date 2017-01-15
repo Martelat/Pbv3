@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 
 import org.proxibanquev3.domaine.Client;
@@ -21,8 +22,14 @@ public class ConseillerBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	// Protpriété
+	
+	@ManagedProperty(value = "")
 	String login;
+	@ManagedProperty(value = "")
 	String pwd;
+	@ManagedProperty(value = "")
+	Conseiller conseiller = new Conseiller();
+	
 	ConseillerService conseillerService;// injection
 	Collection<Client> listClient = new ArrayList<Client>();
 
@@ -33,8 +40,10 @@ public class ConseillerBean implements Serializable {
 
 	// Méthode
 
-	public void authentification(String login, String pwd) {
-		Conseiller conseiller = new Conseiller(login, pwd);
+	
+
+	public void authentification() {
+		Conseiller conseiller = new Conseiller(this.getConseiller().getLogin(),this.getConseiller().getPwd());
 		ConseillerService conseillerservice = new ConseillerService();
 		conseillerservice.authentification(conseiller);
 
@@ -77,5 +86,15 @@ public class ConseillerBean implements Serializable {
 	public void setListClient(Collection<Client> listClient) {
 		this.listClient = listClient;
 	}
+
+	public Conseiller getConseiller() {
+		return conseiller;
+	}
+
+	public void setConseiller(Conseiller conseiller) {
+		this.conseiller = conseiller;
+	}
+	
+	
 
 }

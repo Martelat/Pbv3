@@ -11,8 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 /**
- * @author Marie Martelat & Marie Jacquin
- * Classe permettant d'instancier des objets de type Conseiller
+ * @author Marie Martelat & Marie Jacquin Classe permettant d'instancier des
+ *         objets de type Conseiller
  */
 @Entity
 public class Conseiller implements Serializable {
@@ -21,26 +21,30 @@ public class Conseiller implements Serializable {
 	 * numéro de version
 	 */
 	private static final long serialVersionUID = 1L;
-	
-	//Attributs
+
+	// Attributs
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int idConseiller;
-	
+
 	private String nom;
 	private String prenom;
 	private String login;
 	private String pwd;
-	
-	@OneToMany(mappedBy="conseiller")
+
+	@OneToMany(mappedBy = "conseiller")
 	private Collection<Client> client;
-	
-	//Constructeurs
+
+	// Constructeurs
 	/**
-	 * @param nom nom du conseiller
-	 * @param prenom prénom du conseiller
-	 * @param login login du conseiller
-	 * @param pwd mot de passe du conseiller
+	 * @param nom
+	 *            nom du conseiller
+	 * @param prenom
+	 *            prénom du conseiller
+	 * @param login
+	 *            login du conseiller
+	 * @param pwd
+	 *            mot de passe du conseiller
 	 */
 	public Conseiller(String nom, String prenom, String login, String pwd) {
 		super();
@@ -53,14 +57,14 @@ public class Conseiller implements Serializable {
 	public Conseiller() {
 		super();
 	}
-	
+
 	public Conseiller(String login, String pwd) {
 		super();
 		this.login = login;
 		this.pwd = pwd;
 	}
 
-	//Getters & Setters
+	// Getters & Setters
 	public int getIdConseiller() {
 		return idConseiller;
 	}
@@ -110,4 +114,12 @@ public class Conseiller implements Serializable {
 	}
 	
 	
+	
+	
+	@Override
+	public String toString() {
+		return "Conseiller nom =" + nom + ", prenom =" + prenom + ", login =" + login
+				+ ", pwd =" + pwd ;
+	}
+
 }
