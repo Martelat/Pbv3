@@ -40,12 +40,10 @@ public class ConseillerBean implements Serializable {
 
 	// Méthode
 
-	
-
 	public void authentification() {
-		Conseiller conseiller = new Conseiller(this.getConseiller().getLogin(),this.getConseiller().getPwd());
 		ConseillerService conseillerservice = new ConseillerService();
-		conseillerservice.authentification(conseiller);
+		Conseiller authconseiller = new Conseiller(this.login, this.pwd);
+		conseillerservice.authentification(authconseiller);
 
 	}
 
