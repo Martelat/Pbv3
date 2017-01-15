@@ -19,6 +19,10 @@ public class CompteDao extends Dao<Compte> implements ICompteDao{
 		this.em = em;
 	}
 
+	public CompteDao() {
+		super();
+	}
+	
 	@Override
 	public Compte creer(Compte compte) {
 		super.creer(compte);
