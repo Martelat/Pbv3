@@ -6,7 +6,10 @@ import javax.faces.event.PhaseListener;
 
 public class EcouteurPhase implements PhaseListener {
 
-	private static final long serialVesrionUID = 1L;
+	/**
+	 * numéro de version
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@Override
 	public void afterPhase(PhaseEvent event) {

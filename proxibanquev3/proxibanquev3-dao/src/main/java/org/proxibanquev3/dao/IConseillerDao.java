@@ -14,7 +14,7 @@ public interface IConseillerDao extends IDao<Conseiller>{
 
 	void supprimer(Conseiller object);
 
-	void creer(Conseiller object);
+	Conseiller creer(Conseiller object);
 	
 	Collection<Client> selectAll();
 	

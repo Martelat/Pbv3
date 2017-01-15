@@ -18,7 +18,7 @@ public abstract class Dao<T> {
 	 * @param object
 	 *            objet à enregistrer en base
 	 */
-	public void creer(T object) {
+	public T creer(T object) {
 
 		tx.begin();
 
@@ -28,6 +28,7 @@ public abstract class Dao<T> {
 		// Fermeture de la transaction, du gestionnaire d'entité et de sa
 		// fabrique
 		tx.commit();
+		return object;
 	}
 
 	/**

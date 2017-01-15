@@ -33,8 +33,9 @@ public class ConseillerDao extends Dao<Conseiller> implements IConseillerDao{
 	
 
 	@Override
-	public void creer(Conseiller conseiller) {
+	public Conseiller creer(Conseiller conseiller) {
 		super.creer(conseiller);
+		return conseiller;
 	}
 	
 	@Override

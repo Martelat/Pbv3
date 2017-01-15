@@ -10,6 +10,6 @@ public interface ICompteDao extends IDao<Compte>{
 
 	void supprimer(Compte object);
 
-	void creer(Compte object);
+	Compte creer(Compte object);
 	
 }
