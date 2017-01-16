@@ -10,6 +10,6 @@ public interface IConseillerService {
 	
 	Collection<Client> selectAll();
 	
-	String authentification(Conseiller conseiller);
+	Conseiller authentification(Conseiller conseiller);
 
 }

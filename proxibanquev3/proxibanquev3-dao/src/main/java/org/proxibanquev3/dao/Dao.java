@@ -84,8 +84,8 @@ public abstract class Dao<T> {
 		tx.begin();
 
 		Conseiller c = (Conseiller) em.createQuery(
-				"Select * from conseiller where login = " + conseiller.getLogin() + " pwd = " + conseiller.getPwd())
-				.getSingleResult();
+				"from Conseiller c where c.login='jean01' and c.pwd='acteur'").getSingleResult();
+				//"from Conseiller c where c.login= " + conseiller.getLogin() + " and c.pwd= " + conseiller.getPwd()).getSingleResult();
 
 		tx.commit();
 
