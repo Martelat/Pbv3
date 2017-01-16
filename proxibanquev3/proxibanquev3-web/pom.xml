@@ -54,11 +54,25 @@
 			<version>4.0</version>
 		</dependency>
 
-		<!-- DEPENDENCE 5 : theme PF -->
+		<!-- DEPENDENCE 6 : theme PF -->
 		<dependency>
 			<groupId>org.primefaces.extensions</groupId>
 			<artifactId>all-themes</artifactId>
 			<version>1.0.8</version>
+		</dependency>
+
+		<!-- DEPENDENCE 7 : Weld se core et servet core -->
+		<dependency>
+			<groupId>org.jboss.weld.servlet</groupId>
+			<artifactId>weld-servlet</artifactId>
+			<version>2.2.11.Final</version>
+		</dependency>
+
+		<!-- DEPENDENCE 8 : jstl -->
+		<dependency>
+			<groupId>jstl</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
 		</dependency>
 
 

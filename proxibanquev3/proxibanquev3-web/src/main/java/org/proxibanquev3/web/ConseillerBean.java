@@ -14,7 +14,7 @@ import org.proxibanquev3.service.ConseillerService;
 
 @ManagedBean(name = "conseillerBean")
 @SessionScoped
-public class ConseillerBean implements Serializable {
+public class ConseillerBean  implements Serializable {
 
 	/**
 	 * numéro de version
@@ -40,16 +40,24 @@ public class ConseillerBean implements Serializable {
 
 	// Méthode
 
-	public void authentification() {
+	public String authentification() {
 		ConseillerService conseillerservice = new ConseillerService();
 		Conseiller authconseiller = new Conseiller(this.login, this.pwd);
-		conseillerservice.authentification(authconseiller);
+		Conseiller conseiller = conseillerservice.authentification(authconseiller);
+		
+		if (conseiller.getLogin().equalsIgnoreCase(authconseiller.getLogin())
+				&& conseiller.getPwd().equalsIgnoreCase(authconseiller.getPwd()) && authconseiller.getLogin() != null) {
+			return "listClients.xhtml";
+		} else {
+			return "login.xhtml";
+		}
+		
 
 	}
 
-	public Collection<Client> selectAll() {
+	public Collection<Client> selectAll(){
 		return listClient = conseillerService.selectAll();
-	}
+	}	
 
 	// Getters Setters
 

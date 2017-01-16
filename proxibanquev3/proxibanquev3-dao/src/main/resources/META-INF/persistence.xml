@@ -11,11 +11,11 @@
 		<class>org.proxibanquev3.domaine.Compte</class>
 		<class>org.proxibanquev3.domaine.CompteEpargne</class>
 		<class>org.proxibanquev3.domaine.CompteCourant</class>
-<!-- 		<class>org.proxibanquev3.domaine.Compte</class> -->
-		<!-- PROPRIETES FOURNISSEUR JPA : voir exemple https://wiki.eclipse.org/EclipseLink/Examples/JPA/JSF_Tutorial-->
+<!--    <class>org.proxibanquev3.domaine.Compte</class> -->
+		<!-- PROPRIETES FOURNISSEUR JPA : voir exemple https://wiki.eclipse.org/EclipseLink/Examples/JPA/JSF_Tutorial -->
 		<properties>
 			<!-- <property name="hibernate.archive.autodetection" value="class" /> -->
-			 <property name="hibernate.show_sql" value="true" /> 
+			<property name="hibernate.show_sql" value="true" />
 
 			<property name="hibernate.format_sql" value="true" />
 

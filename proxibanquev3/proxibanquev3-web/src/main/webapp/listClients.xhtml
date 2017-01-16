@@ -1,19 +1,19 @@
-<?xml version="1.0" encoding="ISO-8859-1" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
 <h:head>
-	<!--Intégration du fichier CSS dans la page-->
+	<!--IntÃ©gration du fichier CSS dans la page-->
 	<h:outputStylesheet library="css" name="table-style.css" />
 	<h:outputStylesheet library="css" name="common-style.css" />
 	<link type="text/css" rel="stylesheet" href="themes/bluesky/skin.css" />
 </h:head>
 <h:body>
 
-	<!-- DECLARATION DU TEMPLATE DONT LA PAGE EST CLIENTE -->
+	<!-- 	DECLARATION DU TEMPLATE DONT LA PAGE EST CLIENTE -->
 	<ui:composition template="/template/layout.xhtml">
 
 		<!-- Redefinition de la zone 'content' du layout  -->
@@ -21,7 +21,7 @@
 			<f:view>
 
 				<h:form>
-					<h4>Liste des clients</h4>
+					<h4>Listes des clients</h4>
 
 					<h:dataTable value="#{conseillerBean.listClient}" var="o"
 						styleClass="order-table" headerClass="order-table-header"
@@ -33,7 +33,7 @@
 						</h:column>
 
 						<h:column>
-							<f:facet name="header">Prénom</f:facet>
+							<f:facet name="header">PrÃ©nom</f:facet>
 							<h:outputText value="#{o.prenom}" />
 						</h:column>
 
