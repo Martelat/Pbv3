@@ -33,7 +33,7 @@ public class Conseiller implements Serializable {
 	private String pwd;
 
 	@OneToMany(mappedBy = "conseiller")
-	private Collection<Client> client;
+	private Collection<Client> client;// = new ArrayList<Client>();
 
 	// Constructeurs
 	/**

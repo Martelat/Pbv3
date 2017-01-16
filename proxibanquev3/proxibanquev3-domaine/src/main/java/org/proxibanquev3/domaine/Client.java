@@ -33,7 +33,7 @@ public class Client implements Serializable {
 	private String adresse;
 	
 	@ManyToOne
-	private Conseiller conseiller;
+	private Conseiller conseiller;// =  new Conseiller();
 
 	// Constructeurs
 	/**

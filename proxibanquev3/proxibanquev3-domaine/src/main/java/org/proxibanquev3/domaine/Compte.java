@@ -30,7 +30,7 @@ public class Compte implements Serializable {
 	private String type;
 	
 	@ManyToOne
-	private Client client;
+	private Client client;// =  new Client();
 	
 	//Constructeurs
 	/**
