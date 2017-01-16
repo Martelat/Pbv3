@@ -1,5 +1,6 @@
 package org.proxibanquev3.web;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import javax.faces.bean.ManagedBean;
@@ -10,12 +11,17 @@ import org.proxibanquev3.service.ConseillerService;
 
 @ManagedBean(name = "conseillerBean")
 @SessionScoped
-public class ConseillerBean {
+public class ConseillerBean  implements Serializable {
+
+	/**
+	 * numéro de version
+	 */
+	private static final long serialVersionUID = 1L;
 
 	String login;
 	String pwd;
 	ConseillerService conseillerService;//injection
-	ArrayList<Client> listClient;
+	ArrayList<Client> listClient = new ArrayList<Client>();
 	public ConseillerBean() {
 		// TODO Auto-generated constructor stub
 	}
@@ -25,9 +31,11 @@ public class ConseillerBean {
 		//à completer
 	}
 	
-	public void selectAll()
+	public ArrayList<Client> selectAll()
 	{
 		listClient = conseillerService.selectAll();
+		
+		return listClient;
 	}
 	
 

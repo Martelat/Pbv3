@@ -1,52 +1,66 @@
-<?xml version="1.0" encoding="ISO-8859-1" ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:ui="http://java.sun.com/jsf/facelets">
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
 <h:head>
-	<!--Intégration du fichier CSS dans la page-->
-	<h:outputStylesheet library="css" name="table-style.css" />
-	<h:outputStylesheet library="css" name="common-style.css" />
+	<link type="text/css" rel="stylesheet" href="themes/bluesky/skin.css" />
 </h:head>
-<body>
 
-	<h:form>
-		<h4>Listes des clients</h4>
+<h:body>
 
-		<h:dataTable value="#{conseillerBean.ListClient}" var="o"
-			styleClass="order-table" headerClass="order-table-header"
-			rowClasses="order-table-odd-row,order-table-even-row">
+	DECLARATION DU TEMPLATE DONT LA PAGE EST CLIENTE
+	<ui:composition template="/template/layout.xhtml">
 
-			<h:column>
-				<f:facet name="header">Nom</f:facet>
-				<h:outputText value="#{o.nom}" />
-			</h:column>
+		<!-- Redefinition de la zone 'content' du layout  -->
+		<ui:define name="content">
+			<f:view>
 
-			<h:column>
-				<f:facet name="header">Prénom</f:facet>
-				<h:outputText value="#{o.prenom}" />
-			</h:column>
+				<h:form>
+					<h4>Listes des clients</h4>
 
-			<h:column>
-				<f:facet name="header">Email</f:facet>
-				<h:outputText value="#{o.email}" />
-			</h:column>
+					<h:dataTable value="#{conseillerBean.listClient}" var="o"
+						styleClass="order-table" headerClass="order-table-header"
+						rowClasses="order-table-odd-row,order-table-even-row">
 
-			<h:column>
-				<f:facet name="header">Adresse</f:facet>
-				<h:outputText value="#{o.adresse}" />
-			</h:column>
+						<h:column>
+							<f:facet name="header">Nom</f:facet>
+							<h:outputText value="#{o.nom}" />
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">PrÃ©nom</f:facet>
+							<h:outputText value="#{o.prenom}" />
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">Email</f:facet>
+							<h:outputText value="#{o.email}" />
+						</h:column>
+
+						<h:column>
+							<f:facet name="header">Adresse</f:facet>
+							<h:outputText value="#{o.adresse}" />
+						</h:column>
 
 
-			<h:column>
-				<f:facet name="header">Supprimer</f:facet>
-				<h:commandLink value="Supprimer"
-					action="#{userbean.deleteAction(o)}" />
-			</h:column>
+						<h:column>
+							<f:facet name="header">Supprimer</f:facet>
+							<h:commandLink value="Supprimer"
+								action="#{userbean.deleteAction(o)}" />
+						</h:column>
 
-		</h:dataTable>
-	</h:form>
+					</h:dataTable>
+				</h:form>
 
-</body>
+			</f:view>
+		</ui:define>
+
+	</ui:composition>
+
+
+</h:body>
 </html>
