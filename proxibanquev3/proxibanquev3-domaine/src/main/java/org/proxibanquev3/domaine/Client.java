@@ -2,10 +2,13 @@ package org.proxibanquev3.domaine;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
 
 /**
  * @author Marie Martelat & Marie Jacquin
@@ -28,6 +31,8 @@ public class Client implements Serializable {
 	private String prenom;
 	private String email;
 	private String adresse;
+	
+	@ManyToOne
 	private Conseiller conseiller;
 
 	// Constructeurs
@@ -44,7 +49,8 @@ public class Client implements Serializable {
 		this.prenom = prenom;
 		this.email = email;
 		this.adresse = adresse;
-		this.conseiller = conseiller;
+		this.conseiller= conseiller;
+	
 	}
 
 	public Client() {
@@ -99,5 +105,11 @@ public class Client implements Serializable {
 	public void setConseiller(Conseiller conseiller) {
 		this.conseiller = conseiller;
 	}
+
+//	@Override
+//	public String toString() {
+//		return "Client [idClient=" + idClient + ", nom=" + nom + ", prenom=" + prenom + ", email=" + email
+//				+ ", adresse=" + adresse + ", conseiller=" + conseiller + "]";
+//	}
 
 }

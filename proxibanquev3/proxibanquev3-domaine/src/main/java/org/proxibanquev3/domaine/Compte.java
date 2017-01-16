@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 /**
  * @author Marie Martelat & Marie Jacquin
@@ -27,6 +28,8 @@ public class Compte implements Serializable {
 	private double solde;
 	private int numero;
 	private String type;
+	
+	@ManyToOne
 	private Client client;
 	
 	//Constructeurs
@@ -42,6 +45,8 @@ public class Compte implements Serializable {
 		this.numero = numero;
 		this.type = type;
 		this.client = client;
+		
+		
 	}
 
 	public Compte() {

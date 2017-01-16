@@ -12,20 +12,24 @@
 </h:head>
 <h:body>
 	<center>
-		<p:panel header="Connexion" style="width: 350;" >
+		
 			<h:form>
          
-			 <h:panelGrid columns="2" cellpadding="2">
-					<h:outputLabel for="#{userManagedBean.username}" value="Nom utilisateur" />
-					<h:inputText value="#{userManagedBean.username}" label="Nom utilisateur"></h:inputText>
-					<h:outputLabel for="#{userManagedBean.password}" value="Mot de passe" />
-					<h:inputSecret value="#{userManagedBean.password}"></h:inputSecret>
+			 <p:panelGrid columns="2" >
+			 <f:facet name="header">Connectez-vous</f:facet>
+			 
+					<h:outputLabel for="login" value="Identifiant : * " />
+					<h:inputText id="login" value="#{conseillerBean.login}" required="true" label="Identifiant"></h:inputText>
+					<h:outputLabel for="pwd" value="Mot de passe : * " />
+					<h:inputSecret id= "pwd" value="#{conseillerBean.pwd}" required="true" label="Mot de passe"></h:inputSecret>
 					
+					<f:facet name="footer">
 					<h:commandButton type="submit" value="Se connecter"
-						action="#{userManagedBean.login}"></h:commandButton>
-				</h:panelGrid>
+						action="#{conseillerBean.authentification()}"></h:commandButton>
+						</f:facet>
+				</p:panelGrid>
 			</h:form>
-		</p:panel>
+		
 		<div>
 			<h:messages></h:messages>
 		</div>

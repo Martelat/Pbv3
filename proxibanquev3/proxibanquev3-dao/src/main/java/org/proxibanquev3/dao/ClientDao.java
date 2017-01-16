@@ -18,10 +18,15 @@ public class ClientDao extends Dao<Client>  implements IClientDao{
 		super();
 		this.em = em;
 	}
+	
+	public ClientDao() {
+		super();
+	}
 
 	@Override
-	public void creer(Client client) {
+	public Client creer(Client client) {
 		super.creer(client);
+		return client;
 	}
 	
 	@Override

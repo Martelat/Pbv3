@@ -1,9 +1,13 @@
 package org.proxibanquev3.dao;
 
-import java.util.ArrayList;
+
+import java.util.Collection;
 
 import javax.annotation.PostConstruct;
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
 
 import org.proxibanquev3.domaine.Client;
 import org.proxibanquev3.domaine.Conseiller;
@@ -21,10 +25,17 @@ public class ConseillerDao extends Dao<Conseiller> implements IConseillerDao{
 		super();
 		this.em = em;
 	}
+	
+	public ConseillerDao() {
+		super();
+		
+	}
+	
 
 	@Override
-	public void creer(Conseiller conseiller) {
+	public Conseiller creer(Conseiller conseiller) {
 		super.creer(conseiller);
+		return conseiller;
 	}
 	
 	@Override
@@ -46,10 +57,36 @@ public class ConseillerDao extends Dao<Conseiller> implements IConseillerDao{
 	public void logApresConstruction(){
 		System.out.println("Après création ConseillerDao");
 	}
+	
+	
 
 	@Override
-	public ArrayList<Client> selectAll() {
+	public Collection<Client> selectAll() {
 		// TODO Auto-generated method stub
-		return (ArrayList<Client>)em.createQuery("From Client").getResultList();//
+		return (Collection<Client>)em.createQuery("Select * from Client").getResultList();//
 	}
+
+	@Override
+	public Conseiller authentification(Conseiller conseiller) {
+		Conseiller pConseiller = select(conseiller);
+		return pConseiller;
+		
+	}
+
+	@Override
+	public Conseiller selectObject(Conseiller conseiller) {
+		
+		return super.selectObject(conseiller);
+	}
+
+	@Override
+	public Conseiller SelectObject(Conseiller conseiller) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
+	
+	
+
 }
